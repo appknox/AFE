@@ -1,0 +1,181 @@
+#!/system/bin/sh
+
+/system/xbin/rm -r /etc
+/system/xbin/mkdir /etc
+/system/xbin/mkdir /datadata
+
+/system/xbin/rm -r /res/
+/system/xbin/rm -r /sbin/
+/system/xbin/mkdir /res/
+/system/xbin/mkdir /sbin/ 
+
+/system/xbin/cp -R /system/bin/recoveryfiles/* /sbin/
+/system/xbin/cp -R /system/bin/recoveryres/* /res/
+
+/system/xbin/ln -s busybox /sbin/[
+/system/xbin/ln -s busybox /sbin/[[
+/system/xbin/ln -s recovery /sbin/amend
+/system/xbin/ln -s busybox /sbin/ash
+/system/xbin/ln -s busybox /sbin/awk
+/system/xbin/ln -s busybox /sbin/basename
+/system/xbin/ln -s busybox /sbin/bbconfig
+/system/xbin/ln -s busybox /sbin/bunzip2
+/system/xbin/ln -s recovery /sbin/busybox
+/system/xbin/ln -s busybox /sbin/bzcat
+/system/xbin/ln -s busybox /sbin/bzip2
+/system/xbin/ln -s busybox /sbin/cal
+/system/xbin/ln -s busybox /sbin/cat
+/system/xbin/ln -s busybox /sbin/catv
+/system/xbin/ln -s busybox /sbin/chgrp
+/system/xbin/ln -s busybox /sbin/chmod
+/system/xbin/ln -s busybox /sbin/chown
+/system/xbin/ln -s busybox /sbin/chroot
+/system/xbin/ln -s busybox /sbin/cksum
+/system/xbin/ln -s busybox /sbin/clear
+/system/xbin/ln -s busybox /sbin/cmp
+/system/xbin/ln -s busybox /sbin/cp
+/system/xbin/ln -s busybox /sbin/cpio
+/system/xbin/ln -s busybox /sbin/cut
+/system/xbin/ln -s busybox /sbin/date
+/system/xbin/ln -s busybox /sbin/dc
+/system/xbin/ln -s busybox /sbin/dd
+/system/xbin/ln -s busybox /sbin/depmod
+/system/xbin/ln -s busybox /sbin/devmem
+/system/xbin/ln -s busybox /sbin/df
+/system/xbin/ln -s busybox /sbin/diff
+/system/xbin/ln -s busybox /sbin/dirname
+/system/xbin/ln -s busybox /sbin/dmesg
+/system/xbin/ln -s busybox /sbin/dos2unix
+/system/xbin/ln -s busybox /sbin/du
+/system/xbin/ln -s recovery /sbin/dump_image
+/system/xbin/ln -s busybox /sbin/echo
+/system/xbin/ln -s busybox /sbin/egrep
+/system/xbin/ln -s busybox /sbin/env
+/system/xbin/ln -s recovery /sbin/erase_image
+/system/xbin/ln -s busybox /sbin/expr
+/system/xbin/ln -s busybox /sbin/false
+/system/xbin/ln -s busybox /sbin/fdisk
+/system/xbin/ln -s busybox /sbin/fgrep
+/system/xbin/ln -s busybox /sbin/find
+/system/xbin/ln -s recovery /sbin/flash_image
+/system/xbin/ln -s busybox /sbin/fold
+/system/xbin/ln -s busybox /sbin/free
+/system/xbin/ln -s busybox /sbin/freeramdisk
+/system/xbin/ln -s busybox /sbin/fuser
+/system/xbin/ln -s busybox /sbin/getopt
+/system/xbin/ln -s busybox /sbin/grep
+/system/xbin/ln -s busybox /sbin/gunzip
+/system/xbin/ln -s busybox /sbin/gzip
+/system/xbin/ln -s busybox /sbin/head
+/system/xbin/ln -s busybox /sbin/hexdump
+/system/xbin/ln -s busybox /sbin/id
+/system/xbin/ln -s busybox /sbin/insmod
+/system/xbin/ln -s busybox /sbin/install
+/system/xbin/ln -s busybox /sbin/kill
+/system/xbin/ln -s busybox /sbin/killall
+/system/xbin/ln -s busybox /sbin/killall5
+/system/xbin/ln -s busybox /sbin/length
+/system/xbin/ln -s busybox /sbin/less
+/system/xbin/ln -s busybox /sbin/ln
+/system/xbin/ln -s busybox /sbin/losetup
+/system/xbin/ln -s busybox /sbin/ls
+/system/xbin/ln -s busybox /sbin/lsmod
+/system/xbin/ln -s busybox /sbin/lspci
+/system/xbin/ln -s busybox /sbin/lsusb
+/system/xbin/ln -s busybox /sbin/lzop
+/system/xbin/ln -s busybox /sbin/lzopcat
+/system/xbin/ln -s busybox /sbin/md5sum
+/system/xbin/ln -s busybox /sbin/mkdir
+/system/xbin/ln -s busybox /sbin/mke2fs
+/system/xbin/ln -s busybox /sbin/mkfifo
+/system/xbin/ln -s busybox /sbin/mkfs.ext2
+/system/xbin/ln -s busybox /sbin/mknod
+/system/xbin/ln -s busybox /sbin/mkswap
+/system/xbin/ln -s busybox /sbin/mktemp
+/system/xbin/ln -s recovery /sbin/mkyaffs2image
+/system/xbin/ln -s busybox /sbin/modprobe
+/system/xbin/ln -s busybox /sbin/more
+/system/xbin/ln -s busybox /sbin/mount
+/system/xbin/ln -s busybox /sbin/mountpoint
+/system/xbin/ln -s busybox /sbin/mv
+/system/xbin/ln -s recovery /sbin/nandroid
+/system/xbin/ln -s busybox /sbin/nice
+/system/xbin/ln -s busybox /sbin/nohup
+/system/xbin/ln -s busybox /sbin/od
+/system/xbin/ln -s busybox /sbin/patch
+/system/xbin/ln -s busybox /sbin/pgrep
+/system/xbin/ln -s busybox /sbin/pidof
+/system/xbin/ln -s busybox /sbin/pkill
+/system/xbin/ln -s busybox /sbin/printenv
+/system/xbin/ln -s busybox /sbin/printf
+/system/xbin/ln -s busybox /sbin/ps
+/system/xbin/ln -s busybox /sbin/pwd
+/system/xbin/ln -s busybox /sbin/rdev
+/system/xbin/ln -s busybox /sbin/readlink
+/system/xbin/ln -s busybox /sbin/realpath
+/system/xbin/ln -s recovery /sbin/reboot
+/system/xbin/ln -s busybox /sbin/renice
+/system/xbin/ln -s busybox /sbin/reset
+/system/xbin/ln -s busybox /sbin/rm
+/system/xbin/ln -s busybox /sbin/rmdir
+/system/xbin/ln -s busybox /sbin/rmmod
+/system/xbin/ln -s busybox /sbin/run-parts
+/system/xbin/ln -s busybox /sbin/sed
+/system/xbin/ln -s busybox /sbin/seq
+/system/xbin/ln -s busybox /sbin/setsid
+/system/xbin/ln -s busybox /sbin/sh
+/system/xbin/ln -s busybox /sbin/sha1sum
+/system/xbin/ln -s busybox /sbin/sha256sum
+/system/xbin/ln -s busybox /sbin/sha512sum
+/system/xbin/ln -s busybox /sbin/sleep
+/system/xbin/ln -s busybox /sbin/sort
+/system/xbin/ln -s busybox /sbin/split
+/system/xbin/ln -s busybox /sbin/stat
+/system/xbin/ln -s busybox /sbin/strings
+/system/xbin/ln -s busybox /sbin/stty
+/system/xbin/ln -s busybox /sbin/swapoff
+/system/xbin/ln -s busybox /sbin/swapon
+/system/xbin/ln -s busybox /sbin/sync
+/system/xbin/ln -s busybox /sbin/sysctl
+/system/xbin/ln -s busybox /sbin/tac
+/system/xbin/ln -s busybox /sbin/tail
+/system/xbin/ln -s busybox /sbin/tar
+/system/xbin/ln -s busybox /sbin/tee
+/system/xbin/ln -s busybox /sbin/test
+/system/xbin/ln -s busybox /sbin/time
+/system/xbin/ln -s busybox /sbin/top
+/system/xbin/ln -s busybox /sbin/touch
+/system/xbin/ln -s busybox /sbin/tr
+/system/xbin/ln -s busybox /sbin/true
+/system/xbin/ln -s busybox /sbin/tty
+/system/xbin/ln -s busybox /sbin/umount
+/system/xbin/ln -s busybox /sbin/uname
+/system/xbin/ln -s busybox /sbin/uniq
+/system/xbin/ln -s busybox /sbin/unix2dos
+/system/xbin/ln -s busybox /sbin/unlzop
+/system/xbin/ln -s recovery /sbin/unyaffs
+/system/xbin/ln -s busybox /sbin/unzip
+/system/xbin/ln -s busybox /sbin/uptime
+/system/xbin/ln -s busybox /sbin/usleep
+/system/xbin/ln -s busybox /sbin/uudecode
+/system/xbin/ln -s busybox /sbin/uuencode
+/system/xbin/ln -s busybox /sbin/watch
+/system/xbin/ln -s busybox /sbin/wc
+/system/xbin/ln -s busybox /sbin/which
+/system/xbin/ln -s busybox /sbin/whoami
+/system/xbin/ln -s busybox /sbin/xargs
+/system/xbin/ln -s busybox /sbin/yes
+/system/xbin/ln -s busybox /sbin/zcat
+
+/system/xbin/chmod -R 0755 /sbin/
+
+/system/xbin/rm -r /etc/recovery.fstab
+/system/xbin/ln -s /system/bin/recoveryfiles/etc/recovery.fstab /etc/recovery.fstab
+
+if [ -f /init.smdkc110.rc ]
+then
+	/sbin/busybox killall adbd
+	/sbin/recovery &
+fi
+
+exit 1

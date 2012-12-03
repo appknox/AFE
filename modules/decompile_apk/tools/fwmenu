@@ -1,0 +1,54 @@
+#!/bin/sh
+
+version=1.0
+
+chmod -R +x tools
+PATH=tools:$PATH
+
+while :
+do
+
+  clear
+  echo "
+  ---The Android Exploitation Framework ---
+  _______  _______  _______    _               _______     __   
+  (  ___  )(  ____ \(  ____ \  ( )  |\     /|  (  __   )   /  \  
+  | (   ) || (    \/| (    \/  | |  | )   ( |  | (  )  |   \/) ) 
+  | (___) || (__    | (__      (_)  | |   | |  | | /   |     | | 
+  |  ___  ||  __)   |  __)      _   ( (   ) )  | (/ /) |     | | 
+  | (   ) || (      | (        ( )   \ \_/ /   |   / | |     | | 
+  | )   ( || )      | (____/\  | |    \   /    |  (__) | _ __) (_
+  |/     \||/       (_______/  (_)     \_/     (_______)(_)\____/
+  
+  Copyright Reserved : XYS3C (Visit us at http://xysec.com)                                                       
+       Modified FJ APKTools v2.0 PLUGIN by AFE Team"
+  echo 
+  echo "================================================="
+  echo "*                FJ APKTools v2.0               *"
+  echo "================================================="
+  
+  echo "  1 - Download and Install GB Framework Files"
+  echo "  2 - Download and Install ICS Framework Files"
+  echo "  3 - Download and Install Other Framework Files"
+  echo "  ----------------------"
+  echo "  x - Go Back to Main Menu"
+  echo "  ----------------------"
+  echo
+  echo 
+  echo -n "Enter option: "
+  read opt
+  
+  if [ "$?" != "1" ]
+  then
+    case $opt in
+      1) sh tools/gbfw.sh; echo "Done.";;
+      2) sh tools/icsfw.sh; echo "Done.";;
+      3) sh tools/otherfw.sh; echo "Done.";;
+      x) clear; exit;;
+      *) echo "Invalid option"; continue;;
+    esac
+  fi
+
+  tools/press_enter
+
+done

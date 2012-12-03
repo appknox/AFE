@@ -1,0 +1,14 @@
+#!/res/sbin/sh
+if [ ! -f /sbin/recovery ]
+then
+    /res/sbin/cp -R /res/sbin/* /sbin
+fi
+
+# if we don't have a bml 7... let's not try to deal with boot and recovery. sigh.
+if [ ! -f /dev/block/bml7 ]
+then
+    cat /etc/recovery.fstab | grep -v /boot > /tmp/recovery.fstab.tmp
+    cat /tmp/recovery.fstab.tmp | grep -v /recovery > /etc/recovery.fstab
+fi    
+
+exec /sbin/recovery

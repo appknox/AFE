@@ -1,0 +1,77 @@
+FJ Apktool v2.0
+
+Instructions:
+------------
+1. In terminal navigate to FJApktool directory
+2. Place the apk or jar file you wish to decompile into the original apk directory
+2. Type in terminal without quotes: 'sh fjapktool.sh'
+3. Do your thing!
+
+Usage:
+Option 1 - Install Framework Files - Takes you to Frameworks Menu
+(This will download and install pre-packaged framework files for Gingerbread, ICS or Other)
+(You can change these by navigating to tools/*fw and replacing those with your own)
+
+Option 2 - Decompile GB apk
+(This will decompile your GB apk and place decompiled files into Working directory)
+
+Option 3 - Decompile ICS apk
+(This will decompile your ICS apk and place decompiled files into Working directory)
+
+Option 4 - Decompile Other apk
+(This will decompile your Other(Honeycomb or troublesome apk/jar files) apk and place decompiled files into Working directory)
+
+Option 5 - Compile GB apk
+(This will compile your Working Directory and move new compiled apk file into out directory)
+
+Option 6 - Compile ICS apk
+(This will compile your Working Directory and move new compiled apk file into out directory)
+
+Option 7 - Compile Other apk
+(This will compile your Working Directory and move new compiled apk file into out directory)
+
+Option 8 - Unarchive original signed apk
+(This will unzip the original apk file so you can add changes without re-signing)
+
+Option 9 - Unarchive unsigned working apk
+(This will unzip working apk file in out directory so you can add changes)
+
+Option 10 - Compress final
+(This will compress all of your changes and output 'complete.apk' that has original signature to final directory)
+
+Option CU - Clean up previous projects
+*Warning*
+(Will completely clean out all working directories and rebuild them)
+
+<--------------->
+
+Option 0 - More Options Menu
+(This will take you to the more options menu for decompiling/compiling .jar files and for signing apk files)
+
+Option 1 - Sign apk file
+(Place apk into 'signing' directory and this will sign with standard key)
+
+Option 2 - Decompile .jar file
+(Place .jar file into original_apk then hit this option. Will move working files into 'Working' Directory)
+
+Option 3 - Alt. Decompile .jar file (Use this if option #2 Fails)
+(Place .jar file into original_apk then hit this option. Will move working files into 'Working' Directory)
+
+Option 4 - Compile .jar file
+(Compiles working .jar project and moves compiled .jar file to 'out' directory)
+
+Option 5 - Unarchive Original .jar file
+(Unarchives original .jar file in 'original_apk' directory to apply new compiled changes)
+
+Option 6 - Unarchive Working .jar file
+(Unarchives working .jar file in 'out' directory to apply new compiled changes to original .jar)
+
+Option 7 - Compress Final .jar file
+(This will compress all of your changes and output 'complete.jar' that has original signature to final directory)
+
+<--------------->
+
+You are now on your own!
+
+FJ
+

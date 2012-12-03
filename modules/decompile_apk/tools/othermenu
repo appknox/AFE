@@ -1,0 +1,65 @@
+#!/bin/sh
+
+version=1.0
+
+chmod -R +x tools
+PATH=tools:$PATH
+
+while :
+do
+
+  clear
+  echo "
+  ---The Android Exploitation Framework ---
+  _______  _______  _______    _               _______     __   
+  (  ___  )(  ____ \(  ____ \  ( )  |\     /|  (  __   )   /  \  
+  | (   ) || (    \/| (    \/  | |  | )   ( |  | (  )  |   \/) ) 
+  | (___) || (__    | (__      (_)  | |   | |  | | /   |     | | 
+  |  ___  ||  __)   |  __)      _   ( (   ) )  | (/ /) |     | | 
+  | (   ) || (      | (        ( )   \ \_/ /   |   / | |     | | 
+  | )   ( || )      | (____/\  | |    \   /    |  (__) | _ __) (_
+  |/     \||/       (_______/  (_)     \_/     (_______)(_)\____/
+  
+  Copyright Reserved : XYS3C (Visit us at http://xysec.com)                                                       
+       Modified FJ APKTools v2.0 PLUGIN by AFE Team"
+  echo 
+  echo "================================================="
+  echo "*                FJ APKTools v2.0               *"
+  echo "================================================="
+  
+  echo "  1 - Sign apk file"
+  echo "  2 - Decompile .jar file"
+  echo "  3 - Alt. Decompile .jar file"
+  echo "  4 - Compile .jar file"
+  echo "  5 - Unarchive Original .jar file"
+  echo "  6 - Unarchive Working .jar file"
+  echo "  7 - Compress Final .jar file"
+  echo "  CU - Clean up previous projects"
+  echo "  ----------------------"
+  echo "  x - Go Back to Main Menu"
+  echo "  ----------------------"
+  echo
+  echo 
+  echo -n "Enter option: "
+  read opt
+  
+  if [ "$?" != "1" ]
+  then
+    case $opt in
+      1) sh tools/signapk.sh; echo "Done.";;
+      2) sh tools/decjar.sh; echo "Done.";;
+      3) sh tools/altdecjar.sh; echo "Done.";;
+      4) sh tools/comjar.sh; echo "Done.";;
+      5) sh tools/unzipojar.sh; echo "Done.";;
+      6) sh tools/unzipwjar.sh; echo "Done.";;
+      7) sh tools/zipjar.sh; echo "Done.";;
+      CU) sh tools/cleanup.sh; echo "Done.";;
+      x) clear; exit;;
+      *) echo "Invalid option"; continue;;
+    esac
+  fi
+
+  tools/press_enter
+
+done
+

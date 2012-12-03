@@ -1,0 +1,17 @@
+#!/sbin/sh
+
+echo
+echo "Mounts USB Mass Storage"
+echo "Make sure to safely remove from operating system when done"
+echo "Issue umountums after safely unmounting from OS"
+echo 
+read -n1 -s -p "Press enter to continue, or X to exit " keypress
+echo
+case $keypress in
+[xX]) exit;;
+*) echo /dev/block/mmcblk0p1 > /sys/devices/platform/s3c-usbgadget/gadget/lun0/file;;
+esac
+
+
+
+
