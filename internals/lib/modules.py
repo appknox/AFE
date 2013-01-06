@@ -1,23 +1,17 @@
 #!/usr/bin/python
-#
-# License: Refer to the README in the root directory
-#
 
-import os, os.path, sys
-import argparse, shlex
-from basecmd import BaseCmd
-import subprocess
+import os, os.path, sys, argparse, shlex, signal, subprocess
+from common import BaseCmd
 from subprocess import call
-import signal
 
 class Module(object):
 
     def __init__(self):
-        """ Non-existent constructor """
+        """ Arbitary constructor """
         self.path = "miscellaneous"
 
     def execute(self, session, arg):
-        """ Abstract execution function """
+        """ Arbitary function """
 
 class Modules(BaseCmd):
 
@@ -29,7 +23,7 @@ class Modules(BaseCmd):
             self.prompt = "*Afe/menu/modules$ "
         else:
             self.prompt = "Afe/menu/modules$ "
-        self.modules = {} # A dictionary of module classes
+        self.modules = {} # list of modules 
         self.do_reload(None)
     
     def do_back(self, _args):
@@ -62,8 +56,6 @@ Reloads the Plugins which are loaded in the memory
 	    self._list_modules(modulenames)
 
     def preexec_function():
-        # Ignore the SIGINT signal by setting the handler to the standard
-        # signal handler SIG_IGN.
         signal.signal(signal.SIGINT, signal.SIG_IGN)
 
     def preexec():
@@ -79,15 +71,10 @@ usage: run [--arg <arg>] module
         parser = argparse.ArgumentParser(prog = 'run', add_help = False)
         parser.add_argument('module')
         parser.add_argument('--arg', '-a', metavar = '<arg>')
-        
-
         try:
-
-            # Split arguments using shlex - this means that parameters with spaces can be used - escape " characters inside with \
             splitargs = parser.parse_args(shlex.split(args))
             self.modules.index(splitargs.module)
             # Load module
-        # FIXME: Choose specific exceptions to catch
         except ValueError:
 	        pass
 	        print splitargs.module
@@ -98,7 +85,23 @@ usage: run [--arg <arg>] module
 	        print "Module found !"
 	        module_dir_run = os.getcwd() + "/modules/" + splitargs.module
 	        print module_dir_run
-	        call([module_dir_run+'/run.sh'])
+	        if os.name == 'nt':
+	            path = module_dir_run+'/run.bat'
+	        else:
+	            path = module_dir_run+'/run.sh'
+	        if os.path.isfile(path):
+	            if (splitargs.arg):
+	                try:
+	                    call([path, splitargs.arg])
+	                except:
+	                    pass
+	            else:
+	                try:
+	                    call([path])
+	                except:
+	                    pass
+	        else:
+	            print "Not found : " + path 
 	        #subprocess.Popen([module_dir_run + '/run.sh'], shell = False)
 
         
@@ -111,15 +114,11 @@ usage: info module
         # Define command-line arguments using argparse
         parser = argparse.ArgumentParser(prog = 'info', add_help = False)
         parser.add_argument('module')
-
         try:
-
-            # Split arguments using shlex - this means that parameters with spaces can be used - escape " characters inside with \
             splitargs = parser.parse_args(shlex.split(args))
             self.modules.index(splitargs.module)
 
             # Load module
-        # FIXME: Choose specific exceptions to catch
         except ValueError:
 	        pass
 	        print splitargs.module
