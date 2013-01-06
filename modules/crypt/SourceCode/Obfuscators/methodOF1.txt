@@ -1,0 +1,12 @@
+.method public static OFLog(Ljava/lang/String;Ljava/lang/String;)V
+    .registers 2
+    .parameter "tag"
+    .parameter "msg"
+
+    .prologue
+    .line 28
+    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 29
+    return-void
+.end method

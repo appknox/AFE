@@ -1,0 +1,13 @@
+ChangeLog of ADAM
+
+2012/6/30
+ADAM-linux-0.2.tar.gz
+- We solved a string encryption bug caused by "\n" and "\u".
+- We rewrite the renaming method to make the debug easily.
+
+
+2012/4/18
+ADAM-linux-0.1.tar.gz
+- This is the first Linux version of ADAM (transformed from Win32 version).
+- In this version, String Ecryption obufscator may has some bugs to deal with some special characters and registers. We are not sure the reason is wrong string tranformation of obfuscator or the compilation bugs of apktool. Please send me email if you known the reason.
+

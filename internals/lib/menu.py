@@ -1,17 +1,10 @@
 #!/usr/bin/python
-#
-# License: Refer to the README in the root directory
-#
-import argparse, shlex, sys, urllib2
-from basecmd import BaseCmd
+
+import argparse, shlex, sys, urllib2, time, SocketServer
+from common import BaseCmd, Server, version, ServerHandler
 from subprocess import call
 from modules import Modules
-from server import Server
-from common import version, ServerHandler
-import time
-import SocketServer
-import logging
-import cgi
+
 
 class Menu(BaseCmd):
 
@@ -69,7 +62,7 @@ For querying the content providers,
                 resp = self.session.receiveData()
                 print resp
             else:
-                print "**Not connected to the SERVER App !"
+                print "**Not connected to the AFE SERVER App !"
         except:
             pass
     def do_serve(self, args):
@@ -86,6 +79,7 @@ Starts a Server in Localhost with your predefined port!
                     PORT = int(splitargs.port)
                 else:
                     PORT = 8080
+                
                 Handler = ServerHandler
                 httpd = SocketServer.TCPServer(("", PORT), Handler)
                 print "serving at port ", PORT

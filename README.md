@@ -1,11 +1,7 @@
 AFE
 ===
 
-Android Framework for Exploitation, is a framework for exploiting android based devices and applications. 
-Detailed documentation will be uploaded soon. 
+Android Framework for Exploitation, is a framework for exploiting android based devices
 
-By XYSEC Labs
-(http://xysec.com)
-
-For futher enquiry, please mail us at security@xysec.com
+This Framework will be launching soon !
 ---------------------------------------
