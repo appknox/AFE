@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
 import argparse, shlex, sys, urllib2, time, SocketServer
-from common import BaseCmd, Server, version, ServerHandler
+from common import Server, version, ServerHandler
+from basecmd import *
 from subprocess import call
 from modules import Modules
 

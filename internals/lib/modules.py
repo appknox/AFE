@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import os, os.path, sys, argparse, shlex, signal, subprocess
-from common import BaseCmd
+from basecmd import *
 from subprocess import call
 
 class Module(object):
@@ -105,6 +105,16 @@ usage: run [--arg <arg>] module
 	        #subprocess.Popen([module_dir_run + '/run.sh'], shell = False)
 
         
+    def complete_run(self, text, line, begidx, endidx):
+        if not text:
+            completions = self.modules[:]
+        else:
+            completions = [ f
+                            for f in self.modules
+                            if f.startswith(text)
+                            ]
+        return completions
+
     def do_info(self, args):
         """
 Get information about a custom module
@@ -136,5 +146,12 @@ usage: info module
                 except:
                     pass
 
-
- 
+    def complete_info(self, text, line, begidx, endidx):
+        if not text:
+            completions = self.modules[:]
+        else:
+            completions = [ f
+                            for f in self.modules
+                            if f.startswith(text)
+                            ]
+        return completions
