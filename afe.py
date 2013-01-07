@@ -7,6 +7,7 @@ from internals.lib.basecmd import *
 from internals.lib.menu import Menu
 import readline
 import rlcompleter
+
 if 'libedit' in readline.__doc__:
     readline.parse_and_bind("bind ^I rl_complete")
 else:
