@@ -2,7 +2,9 @@ AFE
 ===
 
 Android Framework for Exploitation, is a framework for exploiting android based devices and applications. 
-Detailed documentation will be uploaded soon. 
+Get the entire manual, and more details about the bounty at 
+
+http://afe-framework.com
 
 By XYSEC Labs
 (http://xysec.com)
