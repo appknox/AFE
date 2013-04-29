@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+# encoding: utf-8
 import os, os.path, sys, argparse, shlex, signal, subprocess
 from basecmd import *
 from subprocess import call

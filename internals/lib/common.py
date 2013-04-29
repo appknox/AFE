@@ -46,7 +46,7 @@ class Server:
         self.socketConn.sendall(data)
 
     def receiveData(self):
-        return self.socketConn.recv(2048)
+        return self.socketConn.recv(4096)
 
     def closeSocket(self):
         self.socketConn.close()

@@ -11,6 +11,16 @@ def path_leaf(path):
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
 
+def bytes_from_file(filename, chunksize=8192):
+    with open(filename, "rb") as f:
+        while True:
+            chunk = f.read(chunksize)
+            if chunk:
+                for b in chunk:
+                    yield b
+            else:
+                break
+
 
 class Menu(BaseCmd):
 
@@ -67,49 +77,44 @@ For querying the content providers,
            query "app com.afe.socket"
         """
         try:
-            parser = argparse.ArgumentParser(prog="query", add_help = False)
-            parser.add_argument('argu', metavar="<arguments>", nargs='+')
+            parser = argparse.ArgumentParser(prog="query")
+            subparsers = parser.add_subparsers(help='sub-command help')
+            parser_get = subparsers.add_parser('get', help="get help")
+            parser_get.add_argument('--url', metavar="<URL>", dest='url', help='The content provider URI')
+            parser_get.add_argument('--proj', metavar="<PROJECTIONS>", dest='proj', help='The Projections, seperated by comma')
+            parser_app = subparsers.add_parser('app', help="Give the app name space to check if the app exists")
+            parser_app.add_argument('package', metavar="<PACKAGE NAME>", dest='package', help='Give the app package name to check if the app exists or not')
             parser.add_argument('--file', '-f', metavar = '<file>', dest='file')
             splitargs = parser.parse_args(shlex.split(args))
-            sendbuf = ' '.join(splitargs.argu)
-            sendbuf1 = sendbuf.strip()
             if(self.connected == 1):
                 if(splitargs.file):
                     if(os.path.isfile(splitargs.file)):
-                        print path_leaf
-                        print "Inside"
-                        fin = open(splitargs.file, "rb")
-                        binary_data = fin.read()
-                        fin.close()
-                        b64_data = base64.b64encode(binary_data)
-                        print b64_data
-                        count = 0
-                        line =""
-                        if len(b64_data) > 100000000000000:
-                            for b in b64_data:
-                                if count < 1000:
-                                    line += b
-                                    count += 1
-                                else:
-                                    print "Here"
-                                    self.session.sendData( "file " + line + "\n")
-                                    resp = self.session.receiveData()
-                                    print resp
-                                    count = 0
-                                    line = ""
-                        else:
-                            print "Here 1"
-                            self.session.sendData( "file " + b64_data + "\n")
+                        fname = path_leaf(splitargs.file)
+                        try:
+                            fsize = os.stat(splitargs.file).st_size
+                        except e:
+                            print e
+                        print "Sending file " + fname + " of size " + str(fsize)
+                        init = fname + " : " + str(fsize)
+                        self.session.sendData(init + "\n")
+                        resp = self.session.receiveData()
+                        if resp == "ok":
+                            fin = open(splitargs.file, "rb")
+                            binary_data = fin.read()
+                            fin.close()
+                            self.session.sendData(sendbuf + "\n")
                             resp = self.session.receiveData()
-                            print resp
-                            
-                        self.session.sendData("file [end]" + "\n")
-                        print "Data Sent !!"
+                            print "Data Sent !!"
+                        else:
+                            print "Something went wrong !"
                     else:
                         print "False"
-                self.session.sendData(sendbuf + "\n")
-                resp = self.session.receiveData()
-                print resp
+                elif (splitargs.argu):
+                    sendbuf = ' '.join(splitargs.argu)
+                    sendbuf = sendbuf.strip()
+                    self.session.sendData(sendbuf + "\n")
+                    resp = self.session.receiveData()
+                    print resp
             else:
                 print "**Not connected to the AFE SERVER App !"
         except:

@@ -90,7 +90,7 @@ This command clears the screen or the terminal window!
 	    else:
 	        os.system('clear')
     
-    def do_exit(self, line):
+    def do_quit(self, line):
         """
 This command exits to the terminal window!
 	""" 
