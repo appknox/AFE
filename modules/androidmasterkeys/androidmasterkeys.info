@@ -1,0 +1,8 @@
+This is a POC example for Android bug 8219321 (master keys):
+
+Well Written Explanation by Al Sutton (https://plus.google.com/113331808607528811927/posts/GxDA6111vYy)
+
+Credits: https://gist.github.com/poliva/36b0795ab79ad6f14fd8 (Pau Oliva)
+         https://github.com/Fuzion24/AndroidMasterKeys/ (Ryan Welton)
+
+Issue: https://github.com/xysec/AFE/issues/3 (@anantshri)
